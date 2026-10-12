@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio — Maxime Couraud{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .portfolio {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+    }
+    .portfolio h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .portfolio .tag {
+        display: inline-block;
+        padding: 0.2rem 0.7rem;
+        background: #1a1a2e;
+        border: 1px solid #7c9fff;
+        border-radius: 4px;
+        color: #7c9fff;
+        font-size: 0.85rem;
+        margin-bottom: 3rem;
+    }
+    .section { margin-bottom: 3rem; }
+    .section h2 { font-size: 1.3rem; color: #7c9fff; margin-bottom: 1rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; }
+    .placeholder { color: #555; font-style: italic; }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="portfolio">
+    <h1>Maxime Couraud</h1>
+    <span class="tag">{{ profile }}</span>
+
+    <div class="section">
+        <h2>À propos</h2>
+        <p class="placeholder">— Contenu à personnaliser selon le profil "{{ profile }}" —</p>
+    </div>
+
+    <div class="section">
+        <h2>Compétences</h2>
+        <p class="placeholder">— Compétences mises en avant pour ce profil —</p>
+    </div>
+
+    <div class="section">
+        <h2>Projets</h2>
+        <p class="placeholder">— Projets pertinents pour ce recruteur —</p>
+    </div>
+
+    <div class="section">
+        <h2>Contact</h2>
+        <p>maxcouraud272@gmail.com</p>
+    </div>
+</div>
+{% endblock %}

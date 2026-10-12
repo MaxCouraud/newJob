@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue — Maxime Couraud{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .landing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 2rem;
+        text-align: center;
+    }
+    .landing h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.5rem;
+    }
+    .landing .subtitle {
+        color: #888;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+    }
+    .code-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 360px;
+    }
+    .code-form input {
+        padding: 0.9rem 1.2rem;
+        font-size: 1.2rem;
+        font-family: monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 8px;
+        color: #fff;
+        text-align: center;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+    .code-form input:focus { border-color: #7c9fff; }
+    .code-form button {
+        padding: 0.9rem;
+        background: #7c9fff;
+        color: #0f0f0f;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .code-form button:hover { background: #a0b8ff; }
+    .error {
+        color: #ff6b6b;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+    .hint { color: #555; font-size: 0.85rem; margin-top: 1.5rem; }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="landing">
+    <h1>Maxime Couraud</h1>
+    <p class="subtitle">Développeur web · Symfony · PHP</p>
+
+    <form class="code-form" action="{{ path('enter_code') }}" method="POST">
+        <input
+            type="text"
+            name="code"
+            placeholder="VOTRE CODE"
+            maxlength="16"
+            autocomplete="off"
+            autofocus
+        >
+        <button type="submit">Accéder au portfolio →</button>
+        {% if error is defined %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </form>
+
+    <p class="hint">Code reçu par email avec ma candidature.</p>
+</div>
+{% endblock %}
